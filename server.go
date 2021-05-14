@@ -1,6 +1,5 @@
 package main
 
-
 import (
 	"fmt"
 	"log"
@@ -30,10 +29,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
 	fmt.Fprintf(w, "Hello!")
 }
-
 
 func main() {
 	fileServer := http.FileServer(http.Dir("./static"))
@@ -41,9 +38,8 @@ func main() {
 	http.HandleFunc("/form", formHandler)
 	http.HandleFunc("/hello", helloHandler)
 
-
 	fmt.Printf("Starting server at port 8080\n")
-	if err := http.ListenAndServe(":8081", nil); err != nil {
+	if err := http.ListenAndServe(":8082", nil); err != nil {
 		log.Fatal(err)
 	}
 }
